@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
+    app:startDestination="@id/currentGoalsFragment">
+
+    <fragment
+        android:id="@+id/currentGoalsFragment"
+        android:name="com.example.dailygoals.ui.goals.current.CurrentGoalsFragment"
+        android:label="CurrentGoalsFragment" />
+    <fragment
+        android:id="@+id/addGoalsFragment"
+        android:name="com.example.dailygoals.ui.goals.future.AddGoalsFragment"
+        android:label="AddGoalsFragment" />
+</navigation>

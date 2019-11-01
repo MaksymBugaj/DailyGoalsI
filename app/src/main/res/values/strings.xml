@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DailyGoals</string>
+    <string name="title_cant_be_empty">Title cant be empty</string>
+    <string name="description_cant_be_empty">Description cant be empty</string>
+</resources>

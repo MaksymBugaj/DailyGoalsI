@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="goal"
+            type="com.example.dailygoals.data.db.entity.Goal" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="6dp"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/item_note_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            tools:text = "DUPA"
+            android:text="@{goal.name}"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
+
+        <TextView
+            android:id="@+id/item_note_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{goal.description}"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            tools:text="Some comment" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
