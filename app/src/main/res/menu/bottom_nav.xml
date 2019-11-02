@@ -7,7 +7,7 @@
         android:title="Goals" />
 
     <item
-        android:id="@+id/action_currentGoalsFragment_to_addGoalsFragment"
+        android:id="@+id/addGoalsFragment"
         android:icon="@drawable/ic_add"
         android:title="Add" />
 </menu>
