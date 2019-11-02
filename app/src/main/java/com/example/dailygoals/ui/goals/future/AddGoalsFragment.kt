@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
+import com.example.dailygoals.R
 
 import com.example.dailygoals.viewmodel.ViewModelProviderFactory
 import com.example.dailygoals.databinding.AddGoalsFragmentBinding
@@ -37,7 +39,8 @@ class AddGoalsFragment : DaggerFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel.clickedLiveData.observe(this, Observer {
             when(it){
-                "ADD" -> Toast.makeText(context,"HELP",Toast.LENGTH_SHORT).show()
+                //todo hide keyboard
+                "ADD" -> findNavController().navigate(R.id.currentGoalsFragment)
             }
         })
     }

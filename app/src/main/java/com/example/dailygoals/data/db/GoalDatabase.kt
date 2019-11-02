@@ -12,7 +12,7 @@ import com.example.dailygoals.data.db.entity.Goal
     entities = [
         Goal::class
     ],
-    version = 2
+    version = 1
 )
 abstract class GoalDatabase : RoomDatabase() {
 

@@ -1,10 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<io.sulek.ssml.SimpleSwipeMenuLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/swipeContainer"
-    app:dynamicMenuWidth="false"
-    app:menuSide="Right">
+    xmlns:tools="http://schemas.android.com/tools">
 
-</io.sulek.ssml.SimpleSwipeMenuLayout>
+    <data>
+        <variable
+            name="goal"
+            type="com.example.dailygoals.data.db.entity.Goal" />
+    </data>
+
+    <io.sulek.ssml.SimpleSwipeMenuLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/swipeContainer"
+        app:dynamicMenuWidth="false"
+        app:menuSide="Right">
+
+        <LinearLayout
+            android:id="@+id/backgroundContainer"
+            android:orientation="horizontal"
+android:padding="10dp"
+            android:layout_width="125dp"
+            android:background="@drawable/round_corners"
+            android:layout_height="0dp">
+
+            <FrameLayout
+                android:id="@+id/button2"
+                android:background="#673AB7"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:src="@drawable/ic_edit_white"
+                    android:layout_gravity="center"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/button1"
+                android:layout_gravity="center"
+                android:background="#FF3E3E"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:src="@drawable/ic_delete_forever_white"
+                    android:layout_gravity="center"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/foregroundContainer"
+            android:orientation="vertical"
+            android:background="#EEEEEE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="3dp"
+                app:cardUseCompatPadding="true">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp" android:background="@android:color/holo_blue_dark" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/item_note_title_t"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:textSize="22sp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        tools:text = "DUPA"
+                        android:text="@{goal.name}"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
+
+                    <TextView
+                        android:id="@+id/item_note_description_t"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="10dp"
+                        android:textSize="14sp"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:text="@{goal.description}"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                        tools:text="Some comment" />
+
+
+                    <TextView
+                        android:id="@+id/item_note_finish_date_t"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="10dp"
+                        android:textSize="14sp"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:text="@{goal.date}"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                        tools:text="Some comment" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </io.sulek.ssml.SimpleSwipeMenuLayout>
+</layout>

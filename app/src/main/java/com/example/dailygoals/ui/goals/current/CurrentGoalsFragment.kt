@@ -15,6 +15,7 @@ import com.example.dailygoals.viewmodel.ViewModelProviderFactory
 import com.example.dailygoals.databinding.CurrentGoalsFragmentBinding
 
 import dagger.android.support.DaggerFragment
+import io.sulek.ssml.SSMLLinearLayoutManager
 import kotlinx.android.synthetic.main.current_goals_fragment.*
 import javax.inject.Inject
 
@@ -48,8 +49,9 @@ class CurrentGoalsFragment : DaggerFragment() {
         val swipeController = SwipeController()
         val itemTouchHelper = ItemTouchHelper(swipeController)
         recyclerView = recycler_view
+        recyclerView.layoutManager = SSMLLinearLayoutManager(requireContext())
         recyclerView.adapter = MultipleItemsAdapter()
-//        itemTouchHelper.attachToRecyclerView(recyclerView)
+       // itemTouchHelper.attachToRecyclerView(recyclerView)
 
 
         getGoalsFromDb()

@@ -15,8 +15,12 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:cardCornerRadius="5dp"
-        app:cardElevation="6dp"
+        app:cardElevation="3dp"
         app:cardUseCompatPadding="true">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp" android:background="@android:color/holo_blue_dark" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,6 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:textSize="22sp"
             android:ellipsize="end"
             android:maxLines="1"
             tools:text = "DUPA"
@@ -38,10 +43,28 @@
             android:id="@+id/item_note_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            android:textSize="14sp"
+            android:maxLines="1"
+            android:ellipsize="end"
             android:text="@{goal.description}"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
             tools:text="Some comment" />
 
+
+            <TextView
+                android:id="@+id/item_note_finish_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:textSize="14sp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="@{goal.date}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                tools:text="Some comment" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </layout>

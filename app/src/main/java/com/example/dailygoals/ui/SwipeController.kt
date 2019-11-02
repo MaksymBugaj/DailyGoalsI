@@ -111,31 +111,29 @@ class SwipeController : ItemTouchHelper.Callback() {
         actionState: Int,
         isCurrentlyActive: Boolean
     ) {
-        recyclerView.setOnTouchListener(object : View.OnTouchListener {
-            override fun onTouch(v: View, event: MotionEvent): Boolean {
-                swipeBack =
-                    event.action == MotionEvent.ACTION_CANCEL || event.action == MotionEvent.ACTION_UP
-                if (swipeBack) {
-                    if (dX < -buttonWidth)
-                        buttonShowedState = ButtonsState.RIGHT_VISIBLE
-                    else if (dX > buttonWidth) buttonShowedState = ButtonsState.LEFT_VISIBLE
+        recyclerView.setOnTouchListener { _, event ->
+            swipeBack =
+                event.action == MotionEvent.ACTION_CANCEL || event.action == MotionEvent.ACTION_UP
+            if (swipeBack) {
+                if (dX < -buttonWidth)
+                    buttonShowedState = ButtonsState.RIGHT_VISIBLE
+                else if (dX > buttonWidth) buttonShowedState = ButtonsState.LEFT_VISIBLE
 
-                    if (buttonShowedState !== ButtonsState.GONE) {
-                        setTouchDownListener(
-                            c,
-                            recyclerView,
-                            viewHolder,
-                            dX,
-                            dY,
-                            actionState,
-                            isCurrentlyActive
-                        )
-                        setItemsClickable(recyclerView, false)
-                    }
+                if (buttonShowedState !== ButtonsState.GONE) {
+                    setTouchDownListener(
+                        c,
+                        recyclerView,
+                        viewHolder,
+                        dX,
+                        dY,
+                        actionState,
+                        isCurrentlyActive
+                    )
+                    setItemsClickable(recyclerView, false)
                 }
-                return false
             }
-        })
+            false
+        }
     }
 
 

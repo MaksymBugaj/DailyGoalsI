@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Note Title"
-                android:text="@{vm.title}"/>
+                android:text="@={vm.title}"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -41,7 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Note"
-                android:text="@{vm.description}"/>
+                android:text="@={vm.description}"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 

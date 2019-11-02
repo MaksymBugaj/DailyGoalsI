@@ -13,5 +13,7 @@ class Goal(
     var id: Int ,
     var name: String = "",
     var description:String = "",
-    var priority: Int = 1
+    var priority: Int = 1,
+    var date: String,
+    var isExpanded:Boolean = false
 )

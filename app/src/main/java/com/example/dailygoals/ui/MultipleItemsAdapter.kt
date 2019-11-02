@@ -7,7 +7,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dailygoals.R
 import com.example.dailygoals.data.db.entity.Goal
+import io.sulek.ssml.OnSwipeListener
 import kotlinx.android.synthetic.main.goal_item.view.*
+import kotlinx.android.synthetic.main.recycler_layout_swipe.view.*
 
 /*
 * Created by Maksym Bugaj on 10/31/2019.
@@ -20,7 +22,7 @@ class MultipleItemsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     var listOfGoals = ArrayList<Goal>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.goal_item, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.recycler_layout_swipe, parent, false)
         return LowPriority(view)
     }
 
@@ -47,13 +49,22 @@ class LowPriority(
     itemView: View
 ) : RecyclerView.ViewHolder(itemView) {
 
-    val noteTitle: TextView = itemView.item_note_title
-    val noteDescription: TextView = itemView.item_note_description
+    val noteTitle: TextView = itemView.item_note_title_t
+    val noteDescription: TextView = itemView.item_note_description_t
+    val noteDate: TextView = itemView.item_note_finish_date_t
 
     fun setLowPriorityItem(item: Goal){
 
+        itemView.swipeContainer.setOnSwipeListener(object: OnSwipeListener{
+            override fun onSwipe(isExpanded: Boolean) {
+                item.isExpanded = isExpanded
+            }
+        })
+
         noteTitle.text = item.name
         noteDescription.text = item.description
+        noteDate.text = item.date
+        itemView.swipeContainer.apply(item.isExpanded)
     }
 }
 
